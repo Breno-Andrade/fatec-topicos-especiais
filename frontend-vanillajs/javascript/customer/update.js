@@ -15,16 +15,16 @@ async function updateCustomer(itin) {
 
     try {
         alert(itin.value)
-        const response = await fetch(`http://localhost:8080/customers/byId/${itin.value}`, {
+        const response = await fetch(`http://localhost:8080/customers/${itin.value}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                itin: itin,
-                name: name,
-                email: email,
-                phone: phone
+                itin: itin.value,
+                name: name.value,
+                email: email.value,
+                phone: phone.value
             }),
         })
         alert("Customer updated successfully!")
