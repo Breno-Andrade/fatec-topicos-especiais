@@ -3,12 +3,11 @@ const itin = document.getElementById("itin")
 const name = document.getElementById("name")
 const phone = document.getElementById("phone")
 const email = document.getElementById("email")
-const save = document.getElementById("save")
 
+const save = document.getElementById("save")
 save.addEventListener('click', postCustomers)
 
 async function postCustomers() {
-
     try {
         const response = await fetch(form.action, {
             method: form.method,
@@ -25,7 +24,7 @@ async function postCustomers() {
         alert("Customer registered successfully!")
         window.location = "index.html"
     } catch(error) {
-        alert("Failed to register client!")
         console.error(error)
+        alert("Failed to register client!")
     }
 }

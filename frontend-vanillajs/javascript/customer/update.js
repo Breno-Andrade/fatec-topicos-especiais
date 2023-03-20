@@ -1,22 +1,16 @@
-const form = document.getElementById("form-update")
+const form = document.getElementById("form")
 const name = document.getElementById("name")
 const itin = document.getElementById("itin")
 const phone = document.getElementById("phone")
 const email = document.getElementById("email")
+
 const updateButton = document.getElementById("update")
+updateButton.addEventListener("click", updateCustomer)
 
-
-updateButton.addEventListener("click", () => {
-    updateCustomer(itin)
-})
-
-async function updateCustomer(itin) {
-
-
+async function updateCustomer() {
     try {
-        alert(itin.value)
-        const response = await fetch(`http://localhost:8080/customers/${itin.value}`, {
-            method: "PUT",
+        const response = await fetch(form.action + itin.value, {
+            method: "put",
             headers: {
                 "Content-Type": "application/json",
             },
@@ -30,7 +24,7 @@ async function updateCustomer(itin) {
         alert("Customer updated successfully!")
         window.location = "index.html"
     } catch (error) {
-        alert("Failed updating customer!")
         console.log(error)
+        alert("Failed updating customer!")
     }
 }
