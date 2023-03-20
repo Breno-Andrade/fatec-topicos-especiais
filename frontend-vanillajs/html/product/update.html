@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update product</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h1>Update product</h1>
+        <<form id="form" action="http://localhost:8080/products" method="PUT">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" class="form-control">
+        </div>
+        <div>
+            <label for="description">description:</label>
+            <input type="text" name="description" id="description" class="form-control">
+        </div>
+        <div>
+            <label for="unitPrice">Unit Price:</label>
+            <input type="unitPrice" name="unitPrice" id="unitPrice" class="form-control">
+        </div>
+        <div>
+            <label for="quantityStock">Quantity Stock:</label>
+            <input type="text" name="quantityStock" id="quantityStock" class="form-control">
+        </div>
+        <div>
+            <label for="perishable">Perishable:</label>
+            <input type="text" name="perishable" id="perishable" class="form-control">
+        </div>
+            <button type="button" id="update" class="btn btn-success">Update</button>
+        </form>
+        <a href="index.html" class="btn btn-primary">Back</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../javascript/product/update.js"></script>
+
+</body>
+
+</html>
