@@ -1,6 +1,6 @@
 const form = document.getElementById("form")
-const itin = document.getElementById("itin")
 const name = document.getElementById("name")
+const itin = document.getElementById("itin")
 const phone = document.getElementById("phone")
 const email = document.getElementById("email")
 
