@@ -1,13 +1,13 @@
-const form = document.getElementById("form")
-const name = document.getElementById("name")
-const itin = document.getElementById("itin")
-const phone = document.getElementById("phone")
-const email = document.getElementById("email")
-
 const updateButton = document.getElementById("update")
 updateButton.addEventListener("click", updateCustomer)
 
 async function updateCustomer() {
+    const form = document.getElementById("form")
+    const name = document.getElementById("name")
+    const itin = document.getElementById("itin")
+    const phone = document.getElementById("phone")
+    const email = document.getElementById("email")
+
     try {
         const response = await fetch(form.action + itin.value, {
             method: "put",

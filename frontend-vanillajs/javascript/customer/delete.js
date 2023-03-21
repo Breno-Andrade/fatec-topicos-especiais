@@ -1,9 +1,9 @@
-const itin = document.getElementById("itin")
 const deleteButton = document.getElementById("delete")
-
 deleteButton.addEventListener("click", deleteCustomer)
 
 async function deleteCustomer() {
+    const itin = document.getElementById("itin")
+
     try{
         const response = await fetch(`http://localhost:8080/customers/byItin/${itin.value}`, {
             method: "DELETE",
