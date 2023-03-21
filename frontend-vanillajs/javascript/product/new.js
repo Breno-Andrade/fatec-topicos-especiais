@@ -1,14 +1,15 @@
-const form = document.getElementById("form")
-const name = document.getElementById("name")
-const description = document.getElementById("description")
-const unitPrice = document.getElementById("unitPrice")
-const quantityStock = document.getElementById("quantityStock")
-const perishable = document.getElementById("perishable")
-const save = document.getElementById("save")
 
+const save = document.getElementById("save")
 save.addEventListener('click', postProducts)
 
 async function postProducts() {
+    const form = document.getElementById("form")
+    const name = document.getElementById("name")
+    const description = document.getElementById("description")
+    const unitPrice = document.getElementById("unitPrice")
+    const quantityStock = document.getElementById("quantityStock")
+    const perishable = document.getElementById("perishable")
+    alert(perishable.value)
 
     try {
         const response = await fetch(form.action, {
@@ -26,7 +27,6 @@ async function postProducts() {
         })
         alert("Product successfully created!")
         window.location = "index.html"
-        
     } catch(error) {
         console.error(error)
     }

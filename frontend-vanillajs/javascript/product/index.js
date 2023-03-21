@@ -14,7 +14,7 @@ async function getProducts() {
                     <td>${product.description}</td>
                     <td>${product.unitPrice}</td>
                     <td>${product.quantityStock}</td>
-                    <td>${product.perishible}</td>
+                    <td>${product.perishable}</td>
                 </tr>`
             }
             productBody.innerHTML =

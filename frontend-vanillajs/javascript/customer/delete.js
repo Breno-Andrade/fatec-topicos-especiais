@@ -2,10 +2,11 @@ const deleteButton = document.getElementById("delete")
 deleteButton.addEventListener("click", deleteCustomer)
 
 async function deleteCustomer() {
+    const form = document.getElementById("form")
     const itin = document.getElementById("itin")
 
     try{
-        const response = await fetch(`http://localhost:8080/customers/byItin/${itin.value}`, {
+        const response = await fetch(form.action + `/byItin/${itin.value}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

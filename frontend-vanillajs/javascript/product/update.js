@@ -1,33 +1,34 @@
+
+const button = document.getElementById("update")
+button.addEventListener("click", updateProduct)
+
 async function updateProduct() {
-    const name = document.getElementById("name").value;
-    const description = document.getElementById("description").value;
-    const unitPrice = document.getElementById("unitPrice").value;
-    const quantityStock = document.getElementById("quantityStock").value;
-    const perishable = document.getElementById("perishable").value;
+    const form = document.getElementById("form")
+    const name = document.getElementById("name")
+    const description = document.getElementById("description")
+    const unitPrice = document.getElementById("unitPrice")
+    const quantityStock = document.getElementById("quantityStock")
+    const perishable = document.getElementById("perishable")
 
-    const url = `http://localhost:8080/products/${name}`;
-
-    const response = await fetch(url, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: name,
-            description: description,
-            unitPrice: unitPrice,
-            quantityStock: quantityStock,
-            perishable: perishable
+    try{
+        const response = await fetch(form.action + `/${name.value}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name.value,
+                description: description.value,
+                unitPrice: unitPrice.value,
+                quantityStock: quantityStock.value,
+                perishable: perishable.value
+            })
         })
-    });
+        alert('Product updated successfully')
+        window.location = "index.html"
 
-    if (response.ok) {
-        alert('Product updated successfully');
-        window.location = "index.html";
-    } else {
-        alert('Failed to update product');
+    } catch (error) {
+        console.log(error)
+        alert('Failed to update product')
     }
 }
-
-const button = document.getElementById("update");
-button.addEventListener("click", updateProduct);

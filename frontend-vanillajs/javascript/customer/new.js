@@ -25,6 +25,6 @@ async function postCustomers() {
         window.location = "index.html"
     } catch(error) {
         console.error(error)
-        alert("Failed to register client!")
+        alert("Failed to register customer!")
     }
 }
