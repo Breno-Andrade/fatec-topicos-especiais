@@ -1,8 +1,8 @@
-const backendBaseURL = "http://localhost:8080/customers"
 const name = document.getElementById("name")
 const itin = document.getElementById("itin")
 const phone = document.getElementById("phone")
 const email = document.getElementById("email")
+const backendBaseURL = "http://localhost:8080/customers"
 
 const save = document.getElementById("save")
 save.addEventListener('click', postCustomers)
