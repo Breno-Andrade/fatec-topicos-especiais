@@ -1,4 +1,4 @@
-package br.com.fatecmogidascruzes.topicos.costumer;
+package br.com.fatecmogidascruzes.topicos.customer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -8,6 +8,4 @@ public interface CustomerRepository
         extends JpaRepository<Customer, Long> {
 
     Optional<Customer> findByItin(String itin);
-    Optional<Customer> findById(Long id);
-
 }

@@ -1,4 +1,4 @@
-package br.com.fatecmogidascruzes.topicos.costumer;
+package br.com.fatecmogidascruzes.topicos.customer;
 
 public class GreetingsHiPOST {
     private String name;

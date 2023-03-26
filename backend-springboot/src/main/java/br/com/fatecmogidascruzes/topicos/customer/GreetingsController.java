@@ -1,4 +1,4 @@
-package br.com.fatecmogidascruzes.topicos.costumer;
+package br.com.fatecmogidascruzes.topicos.customer;
 
 import org.springframework.web.bind.annotation.*;
 
