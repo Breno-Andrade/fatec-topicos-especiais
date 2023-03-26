@@ -1,5 +1,6 @@
 package br.com.fatecmogidascruzes.topicos.product;
 
+import br.com.fatecmogidascruzes.topicos.customer.FindCustomer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,48 +17,27 @@ public class ProductController {
 
     @PostMapping
     public void create(@RequestBody Product product){
-        productRepository.save(product);
+        new SaveProduct(productRepository).execute(product);
     }
 
     @GetMapping
     public List<Product> getAll(){
-        return productRepository.findAll();
+        return new ListProduct(productRepository).execute();
     }
 
-    @GetMapping("/byId/{id}")
+    @GetMapping("/{id}")
     public Optional<Product> getById(@PathVariable Long id){
-        return productRepository.findById(id);
+        return new FindProduct(productRepository).execute(id);
     }
 
-    @GetMapping("/byName/{name}")
-    public Optional<Product> getById(@PathVariable String name){
-        return productRepository.findByName(name);
-    }
-
-    @DeleteMapping("/byId/{id}")
+    @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Long id){
-        Optional<Product> product = productRepository.findById(id);
-        product.ifPresent(value -> productRepository.delete(value));
+        new DeleteProduct(productRepository).execute(id);
     }
 
-    @DeleteMapping("/byName/{name}")
-    public void deleteById(@PathVariable String name){
-        Optional<Product> product = productRepository.findByName(name);
-        product.ifPresent(value -> productRepository.delete(value));
-    }
-
-    @PutMapping("/{name}")
-    public void updateByName(@PathVariable String name,
+    @PutMapping("/{id}")
+    public void updateByName(@PathVariable Long id,
                              @RequestBody Product product) {
-        Optional<Product> opDatabaseProduct = productRepository.findByName(name);
-        if(opDatabaseProduct.isPresent()) {
-            Product databaseProduct = opDatabaseProduct.get();
-            databaseProduct.setName(product.getName());
-            databaseProduct.setDescription(product.getDescription());
-            databaseProduct.setUnitPrice(product.getUnitPrice());
-            databaseProduct.setQuantityStock(product.getQuantityStock());
-            databaseProduct.setPerishable(product.isPerishable());
-            productRepository.save(databaseProduct);
-        }
+        new UpdateProduct(productRepository).execute(id, product);
     }
 }
