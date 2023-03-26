@@ -1,15 +1,34 @@
+const form = document.getElementById("form")
+const name = document.getElementById("name")
+const itin = document.getElementById("itin")
+const phone = document.getElementById("phone")
+const email = document.getElementById("email")
+const backendBaseURL = 'http://localhost:8080/customers'
+
 const updateButton = document.getElementById("update")
 updateButton.addEventListener("click", updateCustomer)
 
-async function updateCustomer() {
-    const form = document.getElementById("form")
-    const name = document.getElementById("name")
-    const itin = document.getElementById("itin")
-    const phone = document.getElementById("phone")
-    const email = document.getElementById("email")
+const params = new URLSearchParams(window.location.search)
+const itinNumber = params.get('itin')
+getCustomer(itinNumber)
 
+async function getCustomer(itinNumber) {
     try {
-        const response = await fetch(form.action + itin.value, {
+        const response = await fetch(`${backendBaseURL}/${itinNumber}`)
+        const customer = await response.json()
+        itin.value = customer.itin
+        name.value = customer.name
+        phone.value = customer.phone
+        email.value = customer.email
+
+    } catch(error) {
+        console.error(error)
+    }
+}
+
+async function updateCustomer() {
+    try {
+        const response = await fetch(`${backendBaseURL}/${itinNumber}`, {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
