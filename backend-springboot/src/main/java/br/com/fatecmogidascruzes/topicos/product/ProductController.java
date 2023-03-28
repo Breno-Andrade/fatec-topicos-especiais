@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/products")
@@ -21,11 +22,15 @@ public class ProductController {
     }
 
     @GetMapping
-    public List<Product> getAll(){
-        return new ListProduct(productRepository).execute();
+    public List<ProductPM> getAll(){
+        return new ListProduct(productRepository)
+                .execute()
+                .stream()
+                .map(ProductPM::new)
+                .collect(Collectors.toList());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{i d}")
     public Optional<Product> getById(@PathVariable Long id){
         return new FindProduct(productRepository).execute(id);
     }
