@@ -30,7 +30,7 @@ public class ProductController {
                 .collect(Collectors.toList());
     }
 
-    @GetMapping("/{i d}")
+    @GetMapping("/{id}")
     public Optional<Product> getById(@PathVariable Long id){
         return new FindProduct(productRepository).execute(id);
     }
