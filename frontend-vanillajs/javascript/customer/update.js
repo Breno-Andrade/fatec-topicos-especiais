@@ -6,7 +6,11 @@ const email = document.getElementById("email")
 const backendBaseURL = 'http://localhost:8080/customers'
 
 const updateButton = document.getElementById("update")
-updateButton.addEventListener("click", updateCustomer)
+updateButton.addEventListener("click", (event) => {
+  if (checkInputsIsNotEmpty()) {
+      updateCustomer()
+  }
+})
 
 const params = new URLSearchParams(window.location.search)
 const itinNumber = params.get('itin')
@@ -46,4 +50,56 @@ async function updateCustomer() {
         console.log(error)
         alert("Failed updating customer!")
     }
+}
+
+function errorValidation(input, message){
+    const formControl = input.parentElement
+    const small = formControl.querySelector("small")
+
+    small.innerText = message
+    formControl.className = "form-control error"
+}
+
+function sucessValidation (input) {
+    const formControl = input.parentElement
+
+    formControl.className =  "form-control success"
+}
+
+function checkInputsIsNotEmpty() {
+    const nameValue = name.value.trim()
+    const itinValue = itin.value.trim()
+    const phoneValue = phone.value.trim()
+    const emailValue = email.value.trim()
+    let numberOfErrors = 0
+
+    if (nameValue === ''){
+        errorValidation(name, "Fill in this field!")
+        numberOfErrors += 1
+    } else {
+        sucessValidation(name)
+    }
+
+    if (itinValue === ''){
+        errorValidation(itin, "Fill in this field!")
+        numberOfErrors += 1
+    } else {
+        sucessValidation(itin)
+    }
+
+    if (phoneValue === ''){
+        errorValidation(phone, "Fill in this field!")
+        numberOfErrors += 1
+    } else {
+        sucessValidation(phone)
+    }
+
+    if (emailValue === ''){
+        errorValidation(email, "Fill in this field!")
+        numberOfErrors += 1
+    }  else {
+        sucessValidation(email)
+    }
+
+    return numberOfErrors === 0;
 }
