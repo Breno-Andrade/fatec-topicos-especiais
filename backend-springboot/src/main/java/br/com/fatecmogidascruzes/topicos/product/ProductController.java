@@ -1,6 +1,5 @@
 package br.com.fatecmogidascruzes.topicos.product;
 
-import br.com.fatecmogidascruzes.topicos.customer.FindCustomer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
