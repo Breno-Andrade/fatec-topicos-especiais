@@ -1,4 +1,4 @@
-package br.com.fatecmogidascruzes.topicos.product;
+package br.com.fatecmogidascruzes.topicos.domain.product.entity;
 
 import javax.persistence.*;
 import java.util.Objects;

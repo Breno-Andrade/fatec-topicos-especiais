@@ -1,5 +1,8 @@
-package br.com.fatecmogidascruzes.topicos.product;
+package br.com.fatecmogidascruzes.topicos.infrastructure.web.product;
 
+import br.com.fatecmogidascruzes.topicos.domain.product.entity.Product;
+import br.com.fatecmogidascruzes.topicos.domain.product.usecase.*;
+import br.com.fatecmogidascruzes.topicos.infrastructure.persistence.jpa.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

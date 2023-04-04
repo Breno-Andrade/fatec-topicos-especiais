@@ -1,4 +1,7 @@
-package br.com.fatecmogidascruzes.topicos.product;
+package br.com.fatecmogidascruzes.topicos.domain.product.usecase;
+
+import br.com.fatecmogidascruzes.topicos.domain.product.entity.Product;
+import br.com.fatecmogidascruzes.topicos.infrastructure.persistence.jpa.product.ProductRepository;
 
 public class SaveProduct {
     private ProductRepository productRepository;

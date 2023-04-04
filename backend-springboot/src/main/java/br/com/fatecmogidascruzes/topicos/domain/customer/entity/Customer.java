@@ -36,7 +36,7 @@ public class Customer {
     @Column(length = MAX_EMAIL_LENGTH)
     private String email;
 
-    protected Customer() {}
+    Customer() {}
 
     public Customer(ITIN itin, String name) {
         this.setItin(itin);

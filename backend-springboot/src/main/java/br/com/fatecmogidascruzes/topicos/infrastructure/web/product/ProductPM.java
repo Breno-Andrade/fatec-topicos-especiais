@@ -1,5 +1,7 @@
-package br.com.fatecmogidascruzes.topicos.product;
+package br.com.fatecmogidascruzes.topicos.infrastructure.web.product;
 
+
+import br.com.fatecmogidascruzes.topicos.domain.product.entity.Product;
 
 public class ProductPM {
     private String id;

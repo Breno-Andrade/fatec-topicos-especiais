@@ -5,14 +5,15 @@ const email = document.getElementById("email")
 const backendBaseURL = "http://localhost:8080/customers"
 
 const save = document.getElementById("save")
-save.addEventListener('click', (event) => {
-    event.preventDefault()
-
-    if (checkInputsIsNotEmpty()){
-        checkItin()
-    }
-
-})
+save.addEventListener('click', postCustomers)
+// save.addEventListener('click', (event) => {
+//     event.preventDefault()
+//
+//     if (checkInputsIsNotEmpty()){
+//         checkItin()
+//     }
+//
+// })
 
 async function postCustomers() {
     try {
@@ -99,7 +100,7 @@ async function checkItin() {
                 postCustomers();
             }
         } else {
-            alert("Error checking ITIN number");
+            postCustomers();
         }
     } catch (error) {
         console.error(error)
