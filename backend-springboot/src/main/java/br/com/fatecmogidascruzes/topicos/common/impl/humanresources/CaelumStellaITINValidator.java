@@ -6,7 +6,7 @@ import br.com.fatecmogidascruzes.topicos.common.domain.humanresources.validator.
 public class CaelumStellaITINValidator
         implements ITINValidator {
     public boolean isValid(String number) {
-        CPFValidator cpfValidator = new CPFValidator();
+        CPFValidator cpfValidator = new CPFValidator(true);
         try {
             cpfValidator.assertValid(number);
             return true;

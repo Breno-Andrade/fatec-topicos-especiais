@@ -9,7 +9,7 @@ public class Phone {
     public Phone(String number) {
         String tempNumber = Objects.requireNonNull(number,
                 "The phone number cannot be null");
-        tempNumber = tempNumber.replace("[^\\d]", "");
+        tempNumber = tempNumber.replaceAll("\\D", "");
         if(tempNumber.length() >= 10 && tempNumber.length() <= 11) {
             if(tempNumber.matches("[\\d]{2}9?[\\d]{8}")) {
                 this.number = tempNumber;

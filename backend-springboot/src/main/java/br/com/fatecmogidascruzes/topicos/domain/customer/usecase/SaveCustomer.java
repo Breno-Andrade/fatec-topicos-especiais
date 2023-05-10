@@ -4,7 +4,7 @@ import br.com.fatecmogidascruzes.topicos.domain.customer.entity.Customer;
 import br.com.fatecmogidascruzes.topicos.infrastructure.persistence.jpa.customer.CustomerRepository;
 
 public class SaveCustomer {
-    private CustomerRepository customers;
+    private final CustomerRepository customers;
     public SaveCustomer(CustomerRepository customers) {
         this.customers = customers;
     }

@@ -12,7 +12,7 @@ public class ITIN {
                 "The ITIN cannot be null");
         ITINValidator itinValidator = ServiceLocator.getITINValidator();
         if(itinValidator.isValid(tempNumber)) {
-            this.number = tempNumber.replace("[^\\d]","");
+            this.number = tempNumber.replaceAll("\\D","");
         } else {
             throw new IllegalArgumentException("The provided ITIN is invalid.");
         }
